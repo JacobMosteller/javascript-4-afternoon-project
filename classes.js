@@ -30,6 +30,18 @@
 */
 
 //Code Here
+class Employee{
+  constructor(fn,ln,e,a){
+    this.first_name=fn
+    this.last_name=ln
+    this.email=e
+    this.age=a
+  }
+  makeWidget(){
+    return this.first_name+' '+this.last_name+' Widget'
+  }
+
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -48,7 +60,26 @@
 */
 
 //Code Here
+class Manager{
+  constructor(fn,ln,e,a){
+    this.first_name=fn
+    this.last_name=ln
+    this.email=e
+    this.age=a
+    this.reports =[];
+  }
+  makeWidget(){
+    return this.first_name+' '+this.last_name+' Widget'
+  }
+  hire(employee){
+    this.reports.push(employee)
+  }
+  fire(index){
+    this.reports.splice(index,1)
+    return this.reports;
+  }
 
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -72,8 +103,45 @@
 */
 
 //Code Here
+class ProgressiveManager{
+constructor(fn,ln,e,a){
+  this.first_name=fn;
+  this.last_name=ln;
+  this.email=e;
+  this.age=a;
+  this.title = `Not a manager`;
+  this.bonus = 0;
+  this.reports =[];
+}
+makeWidget(){
+  return this.first_name+' '+this.last_name+' Widget'
+}
+hire(employee){
+  this.reports.push(employee)
+  if(this.reports.length >=1){
+    if(this.reports.length >=4){
+      if(this.reports.length>=11){
+        if(this.reports.length>=51){
+          if(this.reports.length>=101){
+            this.title = `Bestest Manager`
+          }
+          else{this.title= `Manager Plus`}
+        }
+        else{this.title = `Manager`}
+      }
+      else{this.title = `Mostly Manager`}
+    }
+    else{ this.title= `Barely Manager`}
+  }
+  return this.title;
+}
+fire(index){
+  this.bonus+=100;
+  this.reports.splice(index,1)
+  return this.reports;
+}
 
-
+}
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
@@ -99,5 +167,23 @@
 */
 
 //Code Here
-
+class Machine{
+  constructor(){
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot=false;
+  }
+  makeWidgets(num){
+    this.widgets_made_count+=num;
+    if(num>=50){
+      this.wear_and_tear_count+=1
+    }
+    }
+  fixMachine(){
+    this.needs_reboot=true;
+  }
+  reboot(){
+    
+  }
+}
 
